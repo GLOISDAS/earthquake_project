@@ -203,7 +203,7 @@ if st.button("🔍 분석하기"):
     # 지도 시각화
     # -----------------------------
 
-    st.subheader("🌍 세계 지진 분포")
+    #st.subheader("🌍 세계 지진 분포")
 
     m = folium.Map(
         location=[0, 0],
