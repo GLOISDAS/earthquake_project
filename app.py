@@ -200,58 +200,6 @@ if st.button("🔍 분석하기"):
     )
 
     # -----------------------------
-    # 지도 시각화
-    # -----------------------------
-
-    #st.subheader("🌍 세계 지진 분포")
-
-    m = folium.Map(
-        location=[0, 0],
-        zoom_start=2
-    )
-
-    sample_df = df.sample(
-        min(300, len(df)),
-        random_state=42
-    )
-
-    for _, row in sample_df.iterrows():
-
-        cluster_value = row["cluster"]
-
-        if cluster_value == 0:
-            color = "green"
-
-        elif cluster_value == 1:
-            color = "red"
-
-        else:
-            color = "orange"
-
-        folium.CircleMarker(
-            location=[row["위도"], row["경도"]],
-            radius=3,
-            color=color,
-            fill=True,
-            fill_opacity=0.7
-        ).add_to(m)
-
-    # 사용자 위치
-
-    folium.Marker(
-        [latitude, longitude],
-        popup="사용자 입력 위치",
-        tooltip="⭐ 사용자",
-        icon=folium.Icon(color="blue")
-    ).add_to(m)
-
-    st_folium(
-        m,
-        width=1000,
-        height=600
-    )
-
-    # -----------------------------
     # 군집 설명표
     # -----------------------------
 
